@@ -113,18 +113,18 @@
       });
     });
   });
-    const menuData = {
+     const menuData = {
       business: {
         "Licenses & Registrations": [
-          { label: "FSSAI [Food License]", link: "/singapore-company" },
-          { label: "IEC [Import/Export Code]", link: "/singapore-company" },
-          { label: "Digital Signature Certificate", link: "/singapore-company" },
-          { label: "Udyam Registration", link: "/singapore-company" },
-          { label: "MSME Registration", link: "/singapore-company" },
-          { label: "ISO Certification", link: "/singapore-company" }
+          { label: "FSSAI [Food License]", link: "/fssai-registration.html" },
+          { label: "IEC [Import/Export Code]", link: "/import-export-code.html" },
+          { label: "Digital Signature Certificate", link: "/dsc-registration.html" },
+          { label: "Udyam Registration", link: "/UdyamRegistration.html" },
+          { label: "MSME Registration", link: "/MSMERegistration.html" },
+          { label: "ISO Certification", link: "/ISO Certification.html" }
         ],
         "Web Development": [
-          { label: "Web/E-Commerce Website Development", link: "/uae-setup" },
+          { label: "Web/E-Commerce Website Development", link: "/web-ecommerce-development.html" },
         ]
       },
       tax: {
