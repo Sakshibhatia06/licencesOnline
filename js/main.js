@@ -125,7 +125,10 @@
         ],
         "Web Development": [
           { label: "Web/E-Commerce Website Development", link: "/web-ecommerce-development.html" },
-        ]
+        ],
+        "Market Place Onboarding": [
+          { label: "Sale and registration on Amazon / Flipkart", link: "/Sales-RegistrationAmazon.html" },
+        ],
       },
       tax: {
         "GST and Other Indirect Tax": [
