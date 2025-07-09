@@ -2327,6 +2327,12 @@ margin-top: 20px;
     .gst-section h3 {
       font-size: 18px;
     }
+    h1{
+      font-size: 30px !important;
+    }
+    h2{
+      font-size: 25px !important;
+    }
       .nav-center { display: none; }
       .flyout-wrapper { display: none !important; }
       .hamburger { display: block; }
