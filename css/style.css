@@ -2213,6 +2213,11 @@ margin-top: 20px;
     color: #015fc9;
     margin-right: 10px;
   }
+ .btn.btn-primary{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
   @media (max-width: 600px) {
     .ecom-heading {
