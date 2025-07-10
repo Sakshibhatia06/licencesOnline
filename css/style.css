@@ -2218,6 +2218,49 @@ margin-top: 20px;
     justify-content: center;
     align-items: center;
   }
+.service .row > div {
+  display: flex;
+}
+
+.service-item {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid #eee; /* optional for visual clarity */
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* optional */
+}
+
+/* Ensure content fills the available space */
+.service-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-content-inner {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* ensures button stays at bottom */
+}
+/* Equal height for all feature columns */
+.feature .row > div {
+  display: flex;
+}
+
+/* Stretch the feature-item to full height */
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #fff; /* optional for clarity */
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* optional enhancement */
+}
+
+/* Make sure content stays aligned and spaced */
+.feature-item p {
+  flex-grow: 1;
+}
 
   @media (max-width: 600px) {
     .ecom-heading {
