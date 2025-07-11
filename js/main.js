@@ -113,7 +113,7 @@
       });
     });
   });
-     const menuData = {
+    const menuData = {
       business: {
         "Licenses & Registrations": [
           { label: "FSSAI [Food License]", link: "/fssai-registration.html" },
@@ -126,7 +126,7 @@
         "Web Development": [
           { label: "Web/E-Commerce Website Development", link: "/web-ecommerce-development.html" },
         ],
-        "Market Place Onboarding": [
+         "Sale and registration on Amazon / Flipkart": [
           { label: "Sale and registration on Amazon / Flipkart", link: "/Sales-RegistrationAmazon.html" },
         ],
       },
@@ -140,8 +140,8 @@
       },
       others: {
         "About Us": [
-          { label: "Our Company", link: "/apply-trademark" },
-          { label: "Contact Us", link: "/logo-trademark" }
+          { label: "Our Company", link: "/about.html" },
+          { label: "Contact Us", link: "/contact.html" }
         ],
       }
     };
@@ -310,3 +310,66 @@ window.addEventListener("scroll", () => {
     tabNav.style.position = "sticky";
   }
 });
+ const formData = {
+  businessType: '',
+  name: '',
+  email: '',
+  phone: ''
+};
+
+function nextStep(current) {
+  formData.businessType = document.getElementById("businessType").value;
+  document.getElementById("step" + current).classList.remove("active");
+  document.getElementById("step" + (current + 1)).classList.add("active");
+
+  // Pre-fill values if going forward again
+  document.getElementById("name").value = formData.name;
+  document.getElementById("email").value = formData.email;
+  document.getElementById("phone").value = formData.phone;
+}
+
+function prevStep(current) {
+  formData.name = document.getElementById("name").value;
+  formData.email = document.getElementById("email").value;
+  formData.phone = document.getElementById("phone").value;
+
+  document.getElementById("step" + current).classList.remove("active");
+  document.getElementById("step" + (current - 1)).classList.add("active");
+
+  // Restore business type
+  document.getElementById("businessType").value = formData.businessType;
+}
+
+// Submit to Web3Forms and show page content
+document.getElementById("multiStepForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const fdata = new FormData(form);
+
+  fetch(form.action, {
+    method: "POST",
+    body: fdata,
+  })
+    .then((response) => {
+      if (response.ok) {
+        // ✅ Correct IDs below
+        document.getElementById("form-section").style.display = "none";
+        document.getElementById("page-content").style.display = "block";
+      } else {
+        alert("Form submission failed. Try again.");
+      }
+    })
+    .catch((error) => {
+      console.error("Web3Forms error:", error);
+      alert("Something went wrong.");
+    });
+});
+const slides = document.querySelectorAll(".carousel img");
+    let current = 0;
+
+    setInterval(() => {
+      slides[current].classList.remove("active");
+      current = (current + 1) % slides.length;
+      slides[current].classList.add("active");
+    }, 4000);
