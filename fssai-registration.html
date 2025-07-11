@@ -309,12 +309,21 @@
 
     <div class="form-step active" id="registrationStep1">
       <h3>Select Type of Service</h3>
-      <select name="service_type" required>
-        <option value="">-- Select --</option>
-        <option value="Basic Registration">Basic Registration</option>
-        <option value="State License">State License</option>
-        <option value="Central License">Central License</option>
-      </select>
+       <select name="business_type" id="businessType" required>
+          <option value="">-- Select --</option>
+          <option value="Importer">Importer</option>
+          <option value="Merchant-Exporter">Merchant-Exporter</option>
+          <option value="Wholesaler">Wholesaler</option>
+          <option value="Distributor">Distributor</option>
+          <option value="Retailer">Retailer</option>
+          <option value="Transporter">Transporter</option>
+          <option value="Storage-without-Atmospheric-Controller-Cold">Storage without Atmospheric Controller + Cold</option>
+          <option value="Food-Vending-Agencies">Food Vending Agencies</option>
+          <option value="Petty-Retailer-of-snacks/tea-shops">Petty Retailer of snacks/tea shops</option>
+          <option value="Hawker-(Itinerant / Mobile food vendor)">Hawker (Itinerant / Mobile food vendor)</option>
+          <option value="Direct-SellerSole-Proprietorship">Direct SellerSole Proprietorship</option>
+          <option style="background-color: red; font-weight:800" value="Don't-know">Don't Know</option>
+        </select>
       <div class="buttons">
         <button type="button" onclick="nextStep('registration', 1)">Next</button>
       </div>
