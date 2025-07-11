@@ -2568,6 +2568,9 @@ margin-top: 20px;
     h2{
       font-size: 20px !important;
     }
+        #form-section{
+      margin:20px;
+    }
     .container p{
       font-size: 15px !important;
     }
