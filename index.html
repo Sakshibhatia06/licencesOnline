@@ -90,15 +90,22 @@
 
 
     <div class="hero-section-main">
-        <div class="hero-section">
+       <div class="hero-section">
             <div class="hero-text">
                 <h1>Get Expert Help with <strong>Business Licenses & More</strong></h1>
                 <p>Trusted experts in FSSAI, GST, IEC, MSME & business transformation</p>
             </div>
+
             <div class="carousel">
-                <img src="https://via.placeholder.com/300x200?text=FSSAI+License" class="active" alt="Slide 1" />
-                <img src="https://via.placeholder.com/300x200?text=GST+Registration" alt="Slide 2" />
-                <img src="https://via.placeholder.com/300x200?text=Digital+Signature" alt="Slide 3" />
+                <img src="./img/about-1.png" class="slide active" alt="Slide 1" />
+                <img src="./img/carousel-2.png" class="slide" alt="Slide 2" />
+                <img src="./img/blog-1.png" class="slide" alt="Slide 3" />
+
+                <div class="carousel-dots">
+                    <span class="dot active" onclick="showSlide(0)"></span>
+                    <span class="dot" onclick="showSlide(1)"></span>
+                    <span class="dot" onclick="showSlide(2)"></span>
+                </div>
             </div>
         </div>
 
@@ -554,16 +561,26 @@
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-primary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
-     <script>
-    const slides = document.querySelectorAll(".carousel img");
-    let current = 0;
+     <script> let currentSlide = 0;
+  const slides = document.querySelectorAll(".slide");
+  const dots = document.querySelectorAll(".dot");
 
-    setInterval(() => {
-      slides[current].classList.remove("active");
-      current = (current + 1) % slides.length;
-      slides[current].classList.add("active");
-    }, 4000);
-     </script>
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle("active", i === index);
+      dots[i].classList.toggle("active", i === index);
+    });
+    currentSlide = index;
+  }
+
+  function autoSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }
+
+  let interval = setInterval(autoSlide, 4000);
+
+</script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="lib/wow/wow.min.js"></script>
