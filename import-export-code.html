@@ -165,7 +165,7 @@
                     <div class="nav-center" id="navCenter">
                         <div class="nav-item" data-flyout="business">Business Setup</div>
                         <div class="nav-item" data-flyout="tax">Tax & Compliance</div>
-                       <div class="nav-item" data-flyout="others">About Us</div>
+                        <div class="nav-item" data-flyout="others">About Us</div>
                     </div>
                     <div class="hamburger" onclick="toggleMobile()">☰</div>
                 </div>
@@ -196,8 +196,52 @@
             </nav>
         </div>
     </div>
+  <div class="main-form-section">
+      <section id="form-section">
+    <form id="multiStepForm" method="POST" action="https://api.web3forms.com/submit">
+      <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
+      <input type="hidden" name="subject" value="New Business Lead" />
+      <input type="hidden" name="redirect" value="" />
 
-    <div class="container1 hero">
+      <!-- Step 1 -->
+      <div class="form-step active" id="step1">
+         <h2>Select Type of Business</h2>
+        <select name="business_type" id="businessType" required>
+          <option value="">-- Select --</option>
+          <option value="Importer">Importer</option>
+          <option value="Merchant-Exporter">Merchant-Exporter</option>
+          <option value="Wholesaler">Wholesaler</option>
+          <option value="Distributor">Distributor</option>
+          <option value="Retailer">Retailer</option>
+          <option value="Transporter">Transporter</option>
+          <option value="Storage-without-Atmospheric-Controller-Cold">Storage without Atmospheric Controller + Cold</option>
+          <option value="Food-Vending-Agencies">Food Vending Agencies</option>
+          <option value="Petty-Retailer-of-snacks/tea-shops">Petty Retailer of snacks/tea shops</option>
+          <option value="Hawker-(Itinerant / Mobile food vendor)">Hawker (Itinerant / Mobile food vendor)</option>
+          <option value="Direct-SellerSole-Proprietorship">Direct SellerSole Proprietorship</option>
+          <option style="background-color: red; font-weight:800" value="Don't-know">Don't Know</option>
+        </select>
+        <div class="buttons">
+          <button type="button" onclick="nextStep(1)">Next</button>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="form-step" id="step2">
+        <h2>Enter Your Details</h2>
+        <input type="text" name="name" id="name" placeholder="Your Name" required />
+        <input type="email" name="email" id="email" placeholder="Your Email" required />
+        <input type="tel" name="phone" id="phone" placeholder="Phone Number" required />
+        <div class="buttons">
+          <button type="button" onclick="prevStep(2)">Back</button>
+          <button type="submit">Submit</button>
+        </div>
+      </div>
+    </form>
+  </section>
+  </div>
+   <main id="page-content">
+     <div class="container1 hero">
         <div class="content">
             <div style="font-size: 14px; color: gray; margin-bottom: 10px;">
                 <a href="index.html">Home</a> > <a href="fssai-registration.html">Licenses & Registrations</a> > Importer Exporter Code Registration
@@ -234,14 +278,6 @@
   </li>
 </ul>
 
-        </div>
-
-        <div class="form-box">
-            <h3>Register Your Company Today</h3>
-            <input type="email" placeholder="Email">
-            <input type="tel" placeholder="Mobile Number">
-            <input type="text" placeholder="City/Pincode">
-            <button>Get Started</button>
         </div>
     </div>
 
@@ -307,7 +343,6 @@
     </ul>
   </div>
 </section>
-
 <section id="Eligibilty" class="eligibility-section">
   <div class="container">
     <h2><span style="color: #007bff;">Eligibility Criteria</span> for IEC Registration</h2>
@@ -352,9 +387,6 @@
     </ul>
   </div>
 </section>
-
-
-
 <section id="Benefits" class="gst-benefits">
   <h2><span class="highlight" style="color: #015fc9;">Why Choose</span> LicencesOnline for IEC Registration</h2>
   <p class="subtitle">
@@ -411,8 +443,6 @@
     </div>
   </div>
 </section>
-
-
    <section id="Process" class="gst-process-section">
   <div class="container">
     <h2><span class="highlight">Step-by-Step</span> IEC Registration Process</h2>
@@ -458,9 +488,6 @@
     </div>
   </div>
 </section>
-
-
-
   <section id="Documents" class="gst-docs-section">
   <div class="container">
     <h2><span class="highlight">Documents Required</span> for IEC Registration</h2>
@@ -556,10 +583,6 @@
     </div>
   </div>
 </section>
-
-
-
-
   <section id="Fees" class="gst-fees-section">
   <div class="container">
     <h2><span class="highlight">Importer Exporter Code (IEC) Charges</span></h2>
@@ -612,7 +635,7 @@
     </div>
   </div>
 </section>
-<section id="Role" class="gst-role-section">
+<section id="role" class="gst-role-section">
   <div class="container">
     <h2><span class="highlight">Our Role</span> in IEC Registration</h2>
     <p class="subtitle">
@@ -681,10 +704,6 @@
     </p>
   </div>
 </section>
-
-
-
-
  <section id="faq" class="gst-faq-section">
   <div class="container">
     <div class="section-heading"><span class="highlight">Importer Exporter Code</span> FAQs</div>
@@ -760,8 +779,7 @@
     </div>
   </div>
 </section>
-
-
+   </main>
 
 
 
