@@ -365,4 +365,27 @@ document.getElementById("multiStepForm").addEventListener("submit", function (e)
       alert("Something went wrong.");
     });
 });
+document.addEventListener("DOMContentLoaded", function () {
+    const sections = document.querySelectorAll(".main-content h2[id]");
+    const navLinks = document.querySelectorAll(".tab-nav a");
 
+    function activateNav() {
+      let scrollY = window.pageYOffset;
+
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 120;
+        const sectionHeight = section.offsetHeight;
+
+        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+          navLinks.forEach((link) => {
+            link.classList.remove("active");
+            if (link.getAttribute("href") === `#${section.id}`) {
+              link.classList.add("active");
+            }
+          });
+        }
+      });
+    }
+
+    window.addEventListener("scroll", activateNav);
+  });
