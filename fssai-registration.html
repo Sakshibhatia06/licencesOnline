@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GST Revocation</title>
+    <title>Fssai Registration</title>
     <link href="css/style.css" rel="stylesheet">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
@@ -51,43 +51,6 @@
         .content {
             flex: 1 1 60%;
         }
-
-        .form-box {
-            flex: 1 1 30%;
-            background: #fff;
-            height: 350px;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 100px;
-        }
-
-        .form-box h3 {
-            margin-bottom: 20px;
-            font-size: 20px;
-            text-align: center;
-        }
-
-        .form-box input {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            border-radius: 6px;
-            border: 1px solid #ccc;
-        }
-
-        .form-box button {
-            width: 100%;
-            padding: 12px;
-            background-color: #ffcc00;
-            color: #000;
-            border: none;
-            font-weight: bold;
-            border-radius: 6px;
-            cursor: pointer;
-        }
-
         .hero h1 {
             font-size: 40px;
             font-weight: 900;
@@ -112,7 +75,7 @@
             color: #015fc9;
         }
 
-       .tab-nav {
+        .tab-nav {
             display: flex;
             gap: 20px;
             padding: 20px;
@@ -123,7 +86,6 @@
             z-index: 999;
             overflow-x: auto;
         }
-
         .tab-nav a {
             font-weight: 600;
             color: #222;
@@ -134,6 +96,102 @@
             border-bottom: 2px solid #007bff;
             color: #015fc9;
         }
+        .card-main-container{
+          height: 500px;
+          display: flex;
+      justify-content: center;
+      align-items: center;
+        }
+        .card-container {
+          margin: 50px;
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .card1 {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      width: 400px;
+      height: 300px;
+      text-align: center;
+      cursor: pointer;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+      transition: 0.3s ease;
+    }
+
+    .card1:hover {
+      background-color: #daeafd;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
+    .card1 h3{
+      font-size: 30px;
+      font-weight: 800;
+    }
+    .card1 p{
+      font-size: 20px;
+       color: #053363;
+       width: 190px;
+       font-weight: 600;
+    }
+    .form-box {
+      background: white;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      display: none;
+    }
+
+    .form-step {
+      display: none;
+    }
+
+    .form-step.active {
+      margin-top: 40px;
+      display: block;
+    }
+
+    .form-step input,
+    .form-step select {
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .buttons {
+      text-align: right;
+      display: flex;
+    justify-content: center;
+    }
+
+    .form-step h3{
+      font-size: 30px;
+      font-weight: 800;
+    }
+
+    .form-box button {
+      padding: 10px 20px;
+      background: #0077ff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+    #page-content {
+      display: none;
+    }
 
         @media (max-width: 768px) {
             .container1 {
@@ -154,6 +212,7 @@
 </head>
 
 <body>
+
     <div class="container-fluid nav-bar px-0 px-lg-4 py-lg-0">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light">
@@ -165,7 +224,7 @@
                     <div class="nav-center" id="navCenter">
                         <div class="nav-item" data-flyout="business">Business Setup</div>
                         <div class="nav-item" data-flyout="tax">Tax & Compliance</div>
-                       <div class="nav-item" data-flyout="others">About Us</div>
+                        <div class="nav-item" data-flyout="others">Others</div>
                     </div>
                     <div class="hamburger" onclick="toggleMobile()">☰</div>
                 </div>
@@ -197,7 +256,77 @@
         </div>
     </div>
 
-    <div class="container1 hero">
+   <!-- Card Options -->
+<div class="card-main-container">
+    <div class="card-container" id="cardSection">
+    <div class="card1" onclick="openForm('renewal')">
+      <h3>Renewal of FSSAI Certificate</h3>
+      <p>Already registered? Renew now</p>
+    </div>
+    <div class="card1" onclick="openForm('registration')">
+      <h3>New FSSAI Registration</h3>
+      <p>Get your FSSAI license today</p>
+    </div>
+  </div>
+
+  <form id="renewalForm" class="form-box" method="POST" action="https://api.web3forms.com/submit">
+    <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+    <input type="hidden" name="subject" value="FSSAI Renewal Request">
+
+    <div class="form-step active" id="renewalStep1">
+      <h3>Enter FSSAI Registration Number</h3>
+      <input type="text" name="fssai_number" placeholder="FSSAI Number" required>
+      <div class="buttons">
+        <button type="button" onclick="nextStep('renewal', 1)">Next</button>
+      </div>
+    </div>
+
+    <div class="form-step" id="renewalStep2">
+      <h3>Your Details</h3>
+      <input type="text" name="name" placeholder="Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="tel" name="phone" placeholder="Phone" required>
+      <div class="buttons">
+        <button type="button" onclick="prevStep('renewal', 2)">Back</button>
+        <button type="submit">Submit</button>
+      </div>
+    </div>
+  </form>
+
+  <!-- Registration Form -->
+  <form id="registrationForm" class="form-box" method="POST" action="https://api.web3forms.com/submit">
+    <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+    <input type="hidden" name="subject" value="New FSSAI Registration">
+
+    <div class="form-step active" id="registrationStep1">
+      <h3>Select Type of Service</h3>
+      <select name="service_type" required>
+        <option value="">-- Select --</option>
+        <option value="Basic Registration">Basic Registration</option>
+        <option value="State License">State License</option>
+        <option value="Central License">Central License</option>
+      </select>
+      <div class="buttons">
+        <button type="button" onclick="nextStep('registration', 1)">Next</button>
+      </div>
+    </div>
+
+    <div class="form-step" id="registrationStep2">
+      <h3>Your Details</h3>
+      <input type="text" name="name" placeholder="Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="tel" name="phone" placeholder="Phone" required>
+      <div class="buttons">
+        <button type="button" onclick="prevStep('registration', 2)">Back</button>
+        <button type="submit">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+   <main id="page-content">
+     <div class="container1 hero">
         <div class="content">
             <div style="font-size: 14px; color: gray; margin-bottom: 10px;">
                 <a href="index.html">Home</a> > <a href="fssai-registration.html">Licenses & Registrations</a> > FSSAI [Food License]
@@ -226,27 +355,7 @@
         Need a renewal or want to upgrade your license due to business expansion? We handle modifications,
         renewals, and follow-ups within 48 hours, without disrupting your operations.
       </li>
-
-      <li>
-        <strong>Food Safety Compliance Made Simple:</strong>
-        Get alerts for renewals, guidance on labeling requirements, and ongoing compliance tracking so your food
-        business stays safe and legally protected.
-      </li>
-
-      <li>
-        <strong>Pan-India Service for All Food Operators:</strong>
-        Whether you're a cloud kitchen, exporter, or manufacturer — we manage FSSAI registration for any food
-        business category across India with personalized assistance.
-      </li>
     </ul>
-        </div>
-
-        <div class="form-box">
-            <h3>Register Your Company Today</h3>
-            <input type="email" placeholder="Email">
-            <input type="tel" placeholder="Mobile Number">
-            <input type="text" placeholder="City/Pincode">
-            <button>Get Started</button>
         </div>
     </div>
 
@@ -702,6 +811,7 @@
   </div>
 </section>
 
+   </main>
 
 
 
@@ -843,6 +953,77 @@
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-primary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    function openForm(type) {
+      // Hide the card section
+      document.getElementById("cardSection").style.display = "none";
+
+      // Hide both forms initially
+      document.getElementById("renewalForm").style.display = "none";
+      document.getElementById("registrationForm").style.display = "none";
+
+      // Show the selected form
+      if (type === 'renewal') {
+        document.getElementById("renewalForm").style.display = "block";
+      } else {
+        document.getElementById("registrationForm").style.display = "block";
+      }
+    }
+
+    function nextStep(type, current) {
+      document.getElementById(type + "Step" + current).classList.remove("active");
+      document.getElementById(type + "Step" + (current + 1)).classList.add("active");
+    }
+
+    function prevStep(type, current) {
+      document.getElementById(type + "Step" + current).classList.remove("active");
+      document.getElementById(type + "Step" + (current - 1)).classList.add("active");
+    }
+
+    // Expose functions to global scope (for button onclick)
+    window.openForm = openForm;
+    window.nextStep = nextStep;
+    window.prevStep = prevStep;
+
+    // Handle submission for both forms
+    ["renewalForm", "registrationForm"].forEach(formId => {
+      const form = document.getElementById(formId);
+      if (form) {
+        form.addEventListener("submit", function (e) {
+  e.preventDefault();
+  const fdata = new FormData(form);
+
+  fetch(form.action, {
+    method: "POST",
+    body: fdata,
+  }).then((response) => {
+    if (response.ok) {
+      // Hide full container
+      document.querySelector('.card-main-container').style.display = "none";
+
+      // Show success content
+      document.getElementById("page-content").style.display = "block";
+
+      if (formId === "renewalForm") {
+        setTimeout(() => {
+          document.getElementById("renewal-info").scrollIntoView({
+            behavior: "smooth"
+          });
+        }, 100);
+      }
+    } else {
+      alert("Form submission failed.");
+    }
+  }).catch((err) => {
+    console.error(err);
+    alert("Submission error.");
+  });
+});
+}
+    });
+  });
+</script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
