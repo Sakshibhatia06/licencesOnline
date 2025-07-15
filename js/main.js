@@ -280,8 +280,8 @@
     });
     // Highlight active tab on scroll
     const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll(".tab-nav a");
-const tabNav = document.querySelector(".tab-nav");
+const navLinks = document.querySelectorAll(".tab-nav1 a");
+const tabNav = document.querySelector(".tab-nav1");
 const footer = document.querySelector("footer"); // Replace with actual footer class/id if different
 
 window.addEventListener("scroll", () => {
@@ -311,81 +311,50 @@ window.addEventListener("scroll", () => {
   }
 });
  const formData = {
-  businessType: '',
-  name: '',
-  email: '',
-  phone: ''
-};
+    businessType: '',
+    name: '',
+    email: '',
+    phone: ''
+  };
 
-function nextStep(current) {
-  formData.businessType = document.getElementById("businessType").value;
-  document.getElementById("step" + current).classList.remove("active");
-  document.getElementById("step" + (current + 1)).classList.add("active");
+  function nextStep(current) {
+    formData.businessType = document.getElementById("businessType").value;
+    document.getElementById("step" + current).classList.remove("active");
+    document.getElementById("step" + (current + 1)).classList.add("active");
+    document.getElementById("name").value = formData.name;
+    document.getElementById("email").value = formData.email;
+    document.getElementById("phone").value = formData.phone;
+  }
 
-  // Pre-fill values if going forward again
-  document.getElementById("name").value = formData.name;
-  document.getElementById("email").value = formData.email;
-  document.getElementById("phone").value = formData.phone;
-}
+  function prevStep(current) {
+    formData.name = document.getElementById("name").value;
+    formData.email = document.getElementById("email").value;
+    formData.phone = document.getElementById("phone").value;
+    document.getElementById("step" + current).classList.remove("active");
+    document.getElementById("step" + (current - 1)).classList.add("active");
+    document.getElementById("businessType").value = formData.businessType;
+  }
 
-function prevStep(current) {
-  formData.name = document.getElementById("name").value;
-  formData.email = document.getElementById("email").value;
-  formData.phone = document.getElementById("phone").value;
+  document.getElementById("multiStepForm").addEventListener("submit", function (e) {
+    e.preventDefault();
 
-  document.getElementById("step" + current).classList.remove("active");
-  document.getElementById("step" + (current - 1)).classList.add("active");
+    const form = e.target;
+    const fdata = new FormData(form);
 
-  // Restore business type
-  document.getElementById("businessType").value = formData.businessType;
-}
-
-// Submit to Web3Forms and show page content
-document.getElementById("multiStepForm").addEventListener("submit", function (e) {
-  e.preventDefault();
-
-  const form = e.target;
-  const fdata = new FormData(form);
-
-  fetch(form.action, {
-    method: "POST",
-    body: fdata,
-  })
-    .then((response) => {
-      if (response.ok) {
-        // ✅ Correct IDs below
-        document.getElementById("form-section").style.display = "none";
-        document.getElementById("page-content").style.display = "block";
-      } else {
-        alert("Form submission failed. Try again.");
-      }
+    fetch(form.action, {
+      method: "POST",
+      body: fdata,
     })
-    .catch((error) => {
-      console.error("Web3Forms error:", error);
-      alert("Something went wrong.");
-    });
-});
-document.addEventListener("DOMContentLoaded", function () {
-    const sections = document.querySelectorAll(".main-content h2[id]");
-    const navLinks = document.querySelectorAll(".tab-nav a");
-
-    function activateNav() {
-      let scrollY = window.pageYOffset;
-
-      sections.forEach((section) => {
-        const sectionTop = section.offsetTop - 120;
-        const sectionHeight = section.offsetHeight;
-
-        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-          navLinks.forEach((link) => {
-            link.classList.remove("active");
-            if (link.getAttribute("href") === `#${section.id}`) {
-              link.classList.add("active");
-            }
-          });
+      .then((response) => {
+        if (response.ok) {
+          document.getElementById("form-section").style.display = "none";
+          document.getElementById("page-content").style.display = "block";
+        } else {
+          alert("Form submission failed. Try again.");
         }
+      })
+      .catch((error) => {
+        console.error("Web3Forms error:", error);
+        alert("Something went wrong.");
       });
-    }
-
-    window.addEventListener("scroll", activateNav);
   });
