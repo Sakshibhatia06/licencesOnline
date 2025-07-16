@@ -31,111 +31,114 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
     <style>
-        .nav-bar {
-            box-shadow: 0px 6px 13px 2px #dcdcdc;
-            position: sticky;
-            top: 0px;
-            left: 0px;
-            z-index: 1000;
-        }
+      .form-box {
+      background: white;
+      width: 600px;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      display: none;
+    }
 
-        .container1 {
-            max-width: 1280px;
-            margin: auto;
-            padding: 40px 20px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-        }
+    .form-step {
+      display: none;
+    }
 
-        .content {
-            flex: 1 1 60%;
-        }
+    .form-step.active {
+      display: block;
+    }
 
-        .form-box {
-            flex: 1 1 30%;
-            background: #fff;
-            height: 350px;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 100px;
-        }
+    .form-step input,
+    .form-step select {
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
 
-        .form-box h3 {
-            margin-bottom: 20px;
-            font-size: 20px;
-            text-align: center;
-        }
+    .buttons {
+      gap: 10px;
+      text-align: right;
+      display: flex;
+    justify-content: center;
+    }
 
-        .form-box input {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            border-radius: 6px;
-            border: 1px solid #ccc;
-        }
+    .form-step h3{
+      font-size: 30px;
+      font-weight: 800;
+    }
 
-        .form-box button {
-            width: 100%;
-            padding: 12px;
-            background-color: #ffcc00;
-            color: #000;
-            border: none;
-            font-weight: bold;
-            border-radius: 6px;
-            cursor: pointer;
-        }
+    .form-box button {
+      padding: 10px 20px;
+      background: #0077ff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+    .form-box button:hover {
+      background: #0668d7;
+    }
+    .floating-field {
+  position: relative;
+  margin-bottom: 10px;
+}
 
-        .hero h1 {
-            font-size: 40px;
-            font-weight: 900;
-            margin-bottom: 25px;
-        }
+.floating-field input {
+  width: 100%;
+  padding: 18px 12px 6px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: white;
+  outline: none;
+}
 
-        .hero ul {
-            list-style: none;
-            padding: 0;
-        }
+.floating-field label {
+  color: #0077ff;
+  position: absolute;
+  left: 12px;
+  padding: 0 6px;
+  background: white;
+  font-size: 13px;
+  pointer-events: none;
+}
 
-        .hero ul li {
-            margin-bottom: 15px;
-            padding-left: 25px;
-            position: relative;
-        }
+/* Force label to always float */
+.floating-field.always-floating label {
+  top: 10px;
+  font-size: 11px;
+  color: #0077ff;
+}
+.flexxe{
+  display: grid;
+  gap:20px;
+  grid-template-columns: repeat(3,3fr);
+}
+.main-form-section{
+background: linear-gradient(135deg, #eaf6ff, #faf6f6);
+}
 
-        .hero ul li::before {
-            content: "✔";
-            position: absolute;
-            left: 0;
-            color: #015fc9;
-        }
 
-        .tab-nav {
-            display: flex;
-            gap: 20px;
-            padding: 20px;
-            background: #e9f2ff;
-            border-radius: 10px 10px 0 0;
-            position: sticky;
-            top: 65px;
-            z-index: 999;
-            overflow-x: auto;
-        }
-
-        .tab-nav a {
-            font-weight: 600;
-            color: #222;
-            padding-bottom: 5px;
-        }
-
-        .tab-nav a.active {
-            border-bottom: 2px solid #007bff;
-            color: #015fc9;
-        }
+    #page-content {
+      display: none;
+    }
 
         @media (max-width: 768px) {
+          .card-main-container {
+    height: 600px;
+  }
+          .form-box{
+            width: 350px;
+          }
+          .form-step.active {
+    margin-top: 40px;}
+        
+          .card1{
+            width: 330px;
+            height: 200px;
+          }
             .container1 {
                 flex-direction: column;
             }
@@ -143,11 +146,6 @@
             .form-box {
                 position: static;
                 top: unset;
-            }
-
-            .tab-nav {
-                flex-wrap: nowrap;
-                overflow-x: auto;
             }
         }
     </style>
@@ -196,7 +194,7 @@
             </nav>
         </div>
     </div>
-  <div class="main-form-section">
+  <div id="main-form-section" class="main-form-section">
       <section id="form-section">
     <form id="multiStepForm" method="POST" action="https://api.web3forms.com/submit">
       <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
@@ -205,8 +203,8 @@
 
       <!-- Step 1 -->
       <div class="form-step active" id="step1">
-         <h2>Select Type of Business</h2>
-        <select name="business_type" id="businessType" required>
+          <h2 style="margin-bottom: 20px; text-align:center" >Select Type Of <span style="color: #0077ff;">Service </span></h2>
+       <select name="business_type" id="businessType" required>
           <option value="">-- Select --</option>
           <option value="Importer">Importer</option>
           <option value="Merchant-Exporter">Merchant-Exporter</option>
@@ -228,10 +226,26 @@
 
       <!-- Step 2 -->
       <div class="form-step" id="step2">
-        <h2>Enter Your Details</h2>
-        <input type="text" name="name" id="name" placeholder="Your Name" required />
-        <input type="email" name="email" id="email" placeholder="Your Email" required />
-        <input type="tel" name="phone" id="phone" placeholder="Phone Number" required />
+         <h2 style="font-size: 28px; font-weight: 800; text-align: center; margin-bottom: 20px;">
+ <span style="color: #0077ff;">Start Your Import Export Journey</span> & Get 
+<span style="color: #00b14f;">100% </span> Legal IEC Certificate in 1–2 Days
+
+</h2>
+
+  <div class="floating-field">
+    <input type="text" name="name" id="name" required placeholder=" " />
+    <label for="name">Your Name</label>
+  </div>
+
+  <div class="floating-field">
+    <input type="email" name="email" id="email" required placeholder=" " />
+    <label for="email">Your Email</label>
+  </div>
+
+  <div class="floating-field">
+    <input type="tel" name="phone" id="phone" required placeholder=" " />
+    <label for="phone">Mobile Number</label>
+  </div>
         <div class="buttons">
           <button type="button" onclick="prevStep(2)">Back</button>
           <button type="submit">Submit</button>
@@ -250,52 +264,59 @@
 <p>
   Launch your international trade journey with a quick, hassle-free, and expert-led IEC registration process — trusted by exporters, importers, and online sellers across India.
 </p>
+<div class="flexxe">
 
-<ul>
+<ul class="feature-list">
   <li>
-    <strong>Unsure If You Need an IEC? We’ll Help You Decide:</strong>
-    Whether you're starting an export-import business, dropshipping internationally, or selling via Amazon Global — our team will assess your trade goals and guide you through IEC applicability.
-  </li>
-
-  <li>
-    <strong>Expert Filing & Fast Approval – IEC Issued Within 1–2 Days:</strong>
-    Submit your documents online and let our experts handle the rest. We ensure correct filing with the DGFT portal, helping you avoid rejections or delays.
-  </li>
-
-  <li>
-    <strong>End-to-End IEC Support – From Fresh Applications to Modifications:</strong>
-    Need to update business details or reissue a lost IEC? We provide full assistance with modifications, renewals, and DGFT responses without disrupting your operations.
-  </li>
-
-  <li>
-    <strong>Stay Compliant with Import Export Laws:</strong>
-    Get alerts for profile updates, changes in DGFT norms, and guidance on linking your IEC with PAN, AD code registration, and customs compliance.
-  </li>
-
-  <li>
-    <strong>Nationwide Service for All Businesses:</strong>
-    Whether you're an MSME, trader, manufacturer, or e-commerce seller — we handle IEC registration for businesses across India with personalized guidance at every step.
+    <img src="https://cdn-icons-png.flaticon.com/512/10329/10329818.png" alt="Rulebook Icon" width="32" />
+    <div>
+      <strong>Unsure If You Need an IEC? We’ll Help You Decide:</strong>
+      Whether you're starting an export-import business, dropshipping internationally, or selling via Amazon Global — our team will assess your trade goals and guide you through IEC applicability.
+    </div>
   </li>
 </ul>
 
+<ul class="feature-list">
+  <li>
+   <img src="https://cdn-icons-png.flaticon.com/512/2943/2943849.png" alt="Fast Certificate Icon" />
+    <div>
+      <strong>Expert Filing & Fast Approval – IEC Issued Within 1–2 Days:</strong>
+      Submit your documents online and let our experts handle the rest. We ensure correct filing with the DGFT portal, helping you avoid rejections or delays.
+    </div>
+  </li>
+</ul>
+
+<ul class="feature-list">
+
+  <li>
+    <img src="https://cdn-icons-png.flaticon.com/512/235/235861.png" alt="Nationwide Network" width="32" />
+    <div>
+      <strong>Nationwide Service for All Businesses:</strong>
+      Whether you're an MSME, trader, manufacturer, or e-commerce seller — we handle IEC registration for businesses across India with personalized guidance at every step.
+    </div>
+  </li>
+</ul>
+</div>
         </div>
     </div>
-
-    <div class="tab-nav" id="tabNav">
-        <a href="#overview" class="active">Overview</a>
+     <div class="tab-nav11">
+    <div class="tab-nav1" id="tabNav1">
+         <a href="#overview" class="active">Overview</a>
         <a href="#Eligibilty">Eligibility Criteria</a>
          <a href="#Benefits">Benefits</a>
         <a href="#Process">Process</a>
          <a href="#Documents">Documents</a>
         <a href="#Fees">Fees/Charges</a>
-        <a href="#Role">Role</a>
+        <a href="#role">Role</a>
         <a href="#Challenges">Challenges</a>
         <a href="#faq">FAQ's</a>
     </div>
-
+  </div>
+<div class="page-layout">
+    <div class="main-content">
   <section id="overview" class="gst-section">
   <div class="container">
-    <h2>Importer Exporter Code (IEC) Registration Overview</h2>
+    <h2>Importer Exporter Code (IEC) <span class="highlight">Registration Overview</span></h2>
     <p>
       If you're planning to start an international trading business, obtaining an IEC (Importer Exporter Code) is the first legal step. IEC is a 10-digit code issued by the Directorate General of Foreign Trade (DGFT) and is mandatory for anyone importing or exporting goods or services from India.
     </p>
@@ -345,9 +366,8 @@
 </section>
 <section id="Eligibilty" class="eligibility-section">
   <div class="container">
-    <h2><span style="color: #007bff;">Eligibility Criteria</span> for IEC Registration</h2>
+    <h2><span class="highlight"></span>Eligibility Criteria</span> for IEC Registration</h2>
     <p class="description">Any individual or business involved in importing or exporting goods or services from India is required to obtain an Importer Exporter Code (IEC). Here’s who needs it:</p>
-
     <ul>
       <li>
         <i class="fa fa-check-circle"></i>
@@ -684,7 +704,7 @@
 
 <section id="Challenges" class="fssai-section">
   <div class="container">
-    <h2>Challenges in Importer Exporter Code (IEC) Registration</h2>
+    <h2><span class="highlight">Challenges</span> in Importer Exporter Code (IEC) Registration</h2>
     <p>
       While obtaining an IEC is a mandatory and relatively simple process, applicants often face unexpected issues due to documentation errors, portal glitches, and compliance confusion. Understanding these challenges can help streamline your IEC registration.
     </p>
@@ -779,6 +799,19 @@
     </div>
   </div>
 </section>
+</div>
+<div class="tab-nav sticky-tabs" id="desktopTabs">
+        <a href="#overview" class="active">Overview</a>
+        <a href="#Eligibilty">Eligibility Criteria</a>
+         <a href="#Benefits">Benefits</a>
+        <a href="#Process">Process</a>
+         <a href="#Documents">Documents</a>
+        <a href="#Fees">Fees/Charges</a>
+        <a href="#role">Role</a>
+        <a href="#Challenges">Challenges</a>
+        <a href="#faq">FAQ's</a>
+    </div>
+</div>
    </main>
 
 
@@ -921,7 +954,42 @@
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-primary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
+    <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const tabContainer = document.getElementById("desktopTabs");
+    const navLinks = tabContainer.querySelectorAll("a");
 
+    const sections = Array.from(navLinks).map(link => {
+      const id = link.getAttribute("href").replace("#", "");
+      return document.getElementById(id);
+    });
+
+    function updateActiveTab() {
+      const scrollY = window.scrollY + 160;
+      let current = "";
+
+      for (let section of sections) {
+        if (!section) continue;
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+
+        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+          current = section.id;
+          break;
+        }
+      }
+
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === `#${current}`) {
+          link.classList.add("active");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", updateActiveTab);
+  });
+</script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="lib/wow/wow.min.js"></script>
