@@ -347,7 +347,7 @@ window.addEventListener("scroll", () => {
     })
       .then((response) => {
         if (response.ok) {
-          document.getElementById("form-section").style.display = "none";
+          document.getElementById("main-form-section").style.display = "none";
           document.getElementById("page-content").style.display = "block";
         } else {
           alert("Form submission failed. Try again.");
