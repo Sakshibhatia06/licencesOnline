@@ -2232,7 +2232,7 @@ margin-top: 20px;
         .tab-nav.sticky-tabs {
           height: 530px;
           justify-content: center;
-            width: 150px;
+            width: 200px;
             position: sticky;
             top: 70px;
             margin-left: 10px;
@@ -2252,8 +2252,8 @@ margin-top: 20px;
             transition: background 0.3s ease;
         }
 
-        .tab-nav.sticky-tabs a.active {
-          border-left: 4px solid #015fc9;
+        .tab-nav.sticky-tabs a.active,.tab-nav.sticky-tabs a.hover {
+          background: #015fc9;
         }
          .nav-bar {
       box-shadow: 0px 6px 13px 2px #dcdcdc;
@@ -2644,3 +2644,4 @@ margin-top: 20px;
       .hamburger { display: block; }
       .mobile-menu-wrapper { display: flex; }
     }
+
