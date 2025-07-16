@@ -30,127 +30,6 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-    <style>
-        .nav-bar {
-            box-shadow: 0px 6px 13px 2px #dcdcdc;
-            position: sticky;
-            top: 0px;
-            left: 0px;
-            z-index: 1000;
-        }
-
-        .container1 {
-            max-width: 1280px;
-            margin: auto;
-            padding: 40px 20px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-        }
-
-        .content {
-            flex: 1 1 60%;
-        }
-
-        .form-box {
-            flex: 1 1 30%;
-            background: #fff;
-            height: 350px;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 100px;
-        }
-
-        .form-box h3 {
-            margin-bottom: 20px;
-            font-size: 20px;
-            text-align: center;
-        }
-
-        .form-box input {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            border-radius: 6px;
-            border: 1px solid #ccc;
-        }
-
-        .form-box button {
-            width: 100%;
-            padding: 12px;
-            background-color: #ffcc00;
-            color: #000;
-            border: none;
-            font-weight: bold;
-            border-radius: 6px;
-            cursor: pointer;
-        }
-
-        .hero h1 {
-            font-size: 40px;
-            font-weight: 900;
-            margin-bottom: 25px;
-        }
-
-        .hero ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .hero ul li {
-            margin-bottom: 15px;
-            padding-left: 25px;
-            position: relative;
-        }
-
-        .hero ul li::before {
-            content: "✔";
-            position: absolute;
-            left: 0;
-            color: #015fc9;
-        }
-
-        .tab-nav {
-            display: flex;
-            gap: 20px;
-            padding: 20px;
-            background: #e9f2ff;
-            border-radius: 10px 10px 0 0;
-            position: sticky;
-            top: 65px;
-            z-index: 999;
-            overflow-x: auto;
-        }
-
-        .tab-nav a {
-            font-weight: 600;
-            color: #222;
-            padding-bottom: 5px;
-        }
-
-        .tab-nav a.active {
-            border-bottom: 2px solid #007bff;
-            color: #015fc9;
-        }
-
-        @media (max-width: 768px) {
-            .container1 {
-                flex-direction: column;
-            }
-
-            .form-box {
-                position: static;
-                top: unset;
-            }
-
-            .tab-nav {
-                flex-wrap: nowrap;
-                overflow-x: auto;
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -165,7 +44,7 @@
                     <div class="nav-center" id="navCenter">
                         <div class="nav-item" data-flyout="business">Business Setup</div>
                         <div class="nav-item" data-flyout="tax">Tax & Compliance</div>
-                        <div class="nav-item" data-flyout="others">Others</div>
+                        <div class="nav-item" data-flyout="others">About Us</div>
                     </div>
                     <div class="hamburger" onclick="toggleMobile()">☰</div>
                 </div>
@@ -206,57 +85,71 @@
 <p>
   Launch your online store on Amazon and Flipkart with ease. From seller account registration to product listing and branding — we provide complete assistance to help you sell seamlessly on India’s leading e-commerce platforms.
 </p>
-
-<ul>
+<div class="flexx">
+<ul class="feature-list">
   <li>
-    <strong>Seller Account Setup:</strong>
-    We help you register as a seller on Amazon and Flipkart with the right category, GST and PAN details, and KYC documents — ensuring quick approval without errors.
+    <img src="https://cdn-icons-png.flaticon.com/512/1077/1077063.png" alt="Seller Account" />
+    <div>
+      <strong>Seller Account Setup:</strong>
+      <p>We help you register as a seller on Amazon and Flipkart with the right category, GST and PAN details, and KYC documents — ensuring quick approval without errors.</p>
+    </div>
   </li>
 
   <li>
-    <strong>Product Listing & Catalog Creation:</strong>
-    Our team creates optimized listings with professional titles, descriptions, bullet points, keywords, and images to improve visibility and conversions.
-  </li>
-
-  <li>
-    <strong>Category & Brand Approval:</strong>
-    Selling in restricted categories or under your own brand? We guide you through Amazon and Flipkart's approval process for faster onboarding.
-  </li>
-
-  <li>
-    <strong>Pricing & Inventory Management:</strong>
-    We assist in setting competitive pricing, uploading inventory in bulk, and linking with tools to auto-manage stock and avoid order cancellations.
-  </li>
-
-  <li>
-    <strong>Ongoing Seller Support:</strong>
-    From returns and ratings to advertising and Buy Box strategies — we offer continuous support to boost your seller performance and grow revenue.
+    <img src="https://cdn-icons-png.flaticon.com/512/5953/5953763.png" alt="Product Listing" />
+    <div>
+      <strong>Product Listing & Catalog Creation:</strong>
+      <p>Our team creates optimized listings with professional titles, descriptions, bullet points, keywords, and images to improve visibility and conversions.</p>
+    </div>
   </li>
 </ul>
 
+<ul class="feature-list">
+  <li>
+    <img src="https://cdn-icons-png.flaticon.com/512/942/942748.png" alt="Category & Brand Approval" />
+    <div>
+      <strong>Category & Brand Approval:</strong>
+      <p>Selling in restricted categories or under your own brand? We guide you through Amazon and Flipkart's approval process for faster onboarding.</p>
+    </div>
+  </li>
+
+  <li>
+    <img src="https://cdn-icons-png.flaticon.com/512/2906/2906278.png" alt="Inventory Management" />
+    <div>
+      <strong>Pricing & Inventory Management:</strong>
+      <p>We assist in setting competitive pricing, uploading inventory in bulk, and linking with tools to auto-manage stock and avoid order cancellations.</p>
+    </div>
+  </li>
+</ul>
+
+</div>
+
         </div>
 
-        <div class="form-box">
+        <div class="form-box1">
             <h3>Register Your Company Today</h3>
+            <input type="name" placeholder="Name">
             <input type="email" placeholder="Email">
             <input type="tel" placeholder="Mobile Number">
             <input type="text" placeholder="City/Pincode">
             <button>Get Started</button>
         </div>
     </div>
-
-    <div class="tab-nav" id="tabNav">
-        <a href="#overview" class="active">Overview</a>
+    <div class="tab-nav11">
+    <div class="tab-nav1" id="tabNav1">
+       <a href="#overview" class="active">Overview</a>
         <a href="#Benefits">Benefits</a>
         <a href="#Process">Process</a>
         <a href="#Role">Checklist & Role</a>
         <a href="#Difference">Amazon Vs FLipkart</a>
         <a href="#faq">FAQ's</a>
     </div>
-
+  </div>
+<div class="page-layout">
+    <div class="main-content">
 <section id="overview" class="gst-section">
   <div class="container">
-    <h2>Amazon & Flipkart Seller Registration Overview</h2>
+    <h2><span class="highlight">Amazon & Flipkart </span> Seller Registration Overview</h2>
     <p>
       Selling on India’s top marketplaces like Amazon and Flipkart is a game-changer for businesses of all sizes. Whether you're a manufacturer, brand owner, or online reseller, these platforms offer instant access to millions of customers nationwide — without needing your own website or warehousing.
     </p>
@@ -412,7 +305,7 @@
 
 <section id="Role" class="ecom-section">
   <div class="ecom-container">
-    <h2 class="ecom-heading">Marketplace Seller Launch Checklist (Amazon / Flipkart)</h2>
+    <h2 class="ecom-heading"><span class="highlight">Marketplace Seller Launch</span> Checklist (Amazon / Flipkart)</h2>
 
     <div class="checklist">
       <ul>
@@ -429,7 +322,7 @@
       </ul>
     </div>
 
-    <h2 class="ecom-heading">Role of Amazon & Flipkart in Business Growth</h2>
+    <h2 class="ecom-heading"><span class="highlight">Role of Amazon & Flipkart</span> in Business Growth</h2>
 
     <div class="role-section">
       <ul>
@@ -585,7 +478,16 @@
     </div>
   </div>
 </section>
-
+</div>
+<div class="tab-nav sticky-tabs" id="desktopTabs">
+       <a href="#overview" class="active">Overview</a>
+        <a href="#Benefits">Benefits</a>
+        <a href="#Process">Process</a>
+        <a href="#Role">Checklist & Role</a>
+        <a href="#Difference">Amazon Vs FLipkart</a>
+        <a href="#faq">FAQ's</a>
+    </div>
+</div>
 
 
 
@@ -727,6 +629,42 @@
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-primary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
+    <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const tabContainer = document.getElementById("desktopTabs");
+    const navLinks = tabContainer.querySelectorAll("a");
+
+    const sections = Array.from(navLinks).map(link => {
+      const id = link.getAttribute("href").replace("#", "");
+      return document.getElementById(id);
+    });
+
+    function updateActiveTab() {
+      const scrollY = window.scrollY + 160;
+      let current = "";
+
+      for (let section of sections) {
+        if (!section) continue;
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+
+        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+          current = section.id;
+          break;
+        }
+      }
+
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === `#${current}`) {
+          link.classList.add("active");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", updateActiveTab);
+  });
+</script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
