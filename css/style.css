@@ -2252,8 +2252,11 @@ margin-top: 20px;
             transition: background 0.3s ease;
         }
 
-        .tab-nav.sticky-tabs a.active,.tab-nav.sticky-tabs a.hover {
+      .tab-nav.sticky-tabs a.active,
+        .tab-nav.sticky-tabs a.hover {
           background: #015fc9;
+          font-weight: 800;
+          color: white;
         }
          .nav-bar {
       box-shadow: 0px 6px 13px 2px #dcdcdc;
